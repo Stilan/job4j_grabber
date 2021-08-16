@@ -3,7 +3,7 @@ create table if not exists post (
     namePost text ,
     textPost text,
     link text unique,
-    created bigint
+    created timestamp
 );
 
 select * from post;
