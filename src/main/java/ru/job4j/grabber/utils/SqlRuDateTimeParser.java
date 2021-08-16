@@ -28,7 +28,7 @@ public class SqlRuDateTimeParser implements DateTimeParser {
              Map.entry("ноя", "ноября"),
              Map.entry("дек", "декабря")
              );
-     private static final  DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("d MMMM yy, HH:mm");
+     private static final  DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("dMMMMyy,HH:mm");
     /**
      * Метод принимает строку с дата и преобразует ее в LocalDateTime
      * @param parse входная строка
@@ -37,6 +37,7 @@ public class SqlRuDateTimeParser implements DateTimeParser {
     @Override
     public LocalDateTime parse(String parse) {
         String[] strDayYearMonth = parse.split(",");
+        strDayYearMonth[1] = strDayYearMonth[1].replaceAll("\\s", "");
         String[] strHourMinute = strDayYearMonth[1].split(":");
         if (strDayYearMonth[0].contains("сегодня")) {
            return LocalDate.now().atTime(Integer.parseInt(strHourMinute[0]),
@@ -56,6 +57,8 @@ public class SqlRuDateTimeParser implements DateTimeParser {
       private LocalDateTime getLocalDateTime(String strDataSql) {
           String[] strNewMonth = strDataSql.split(" ");
           String strD = strDataSql.replace(strNewMonth[1], MAP_MONTH.get(strNewMonth[1]));
+         strD = strD.replaceAll("\\s", "");
           return LocalDateTime.parse(strD, DATE_TIME_FORMATTER);
       }
+
 }
