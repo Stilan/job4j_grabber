@@ -69,7 +69,7 @@ public class SqlRuParse implements Parse {
             Element footer = document.select(".msgFooter").get(0);
             String dateStr = footer.text().substring(0, footer.text().length() - 52);
             post = new Post(
-                    jobTitle.text().substring(4, jobTitle.text().length() - 6),
+                    jobTitle.text().substring(0, jobTitle.text().length() - 6),
                     link,
                     description.text(),
                     dateTimeParser.parse(dateStr));
