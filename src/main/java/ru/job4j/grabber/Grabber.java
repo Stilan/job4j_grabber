@@ -64,22 +64,11 @@ public class Grabber implements Grab {
             List<Post> postList = parse.list("https://www.sql.ru/forum/job-offers/1");
             for (Post post : postList) {
                 if (post.getTitle().contains("Java") || post.getTitle().contains("java")) {
-                    if (isObjDatabase(store.getAll(), post))  {
+                    if (store.isMaxData() == null || store.isMaxData().isBefore(post.getCreated()))  {
                         store.save(post);
                     }
                 }
             }
-        }
-            /* TODO impl logic */
-        public boolean isObjDatabase(List<Post> postList, Post post) {
-            boolean res = true;
-            for (Post p : postList) {
-               if (post.getTitle().equals(p.getTitle())) {
-                   res = false;
-                   break;
-               }
-            }
-            return res;
         }
     }
 

@@ -1,5 +1,6 @@
 package ru.job4j.grabber;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public interface Store {
@@ -8,4 +9,6 @@ public interface Store {
     List<Post> getAll();
 
     Post findById(int id);
+
+    public LocalDateTime isMaxData();
 }

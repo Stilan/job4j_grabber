@@ -122,6 +122,35 @@ public class PsqlStore implements Store, AutoCloseable {
         return post;
     }
 
+    /**
+     * Метод извлекает последнию дату из бд
+     * @return LocalDateTime
+     */
+    @Override
+    public LocalDateTime isMaxData() {
+       Post post = null;
+        try (PreparedStatement statement = cnn.prepareStatement(
+                "select * from post where created = (select max(created) from post)")) {
+            try (ResultSet resultSet = statement.executeQuery()) {
+                while (resultSet.next()) {
+                    post = new  Post(
+                            resultSet.getInt("id"),
+                            resultSet.getString("namePost"),
+                            resultSet.getString("textPost"),
+                            resultSet.getString("link"),
+                            resultSet.getTimestamp("created").toLocalDateTime()
+                    );
+                }
+                if (post == null) {
+                    return null;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return post.getCreated();
+    }
+
     @Override
     public void close() throws Exception {
         if (cnn != null) {
