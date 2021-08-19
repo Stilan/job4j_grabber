@@ -68,7 +68,9 @@ public class Grabber implements Grab {
                     //кто-нибудь не захочет подключиться
                     try (OutputStream out = socket.getOutputStream()) {
                        // отправлять список вакансий
-                        out.write("HTTP/1.1 200 OK\r\n\r\n".getBytes());
+                        // Протокол HTTP
+                       out.write("HTTP/1.1 200 OK\r\n\r\n".getBytes());
+                        //В программе читается весь входной поток.
                         for (Post post : store.getAll()) {
                             // ответ сервера
                             out.write(post.toString().getBytes(Charset.forName("Windows-1251")));
