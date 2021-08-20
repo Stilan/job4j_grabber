@@ -128,27 +128,21 @@ public class PsqlStore implements Store, AutoCloseable {
      */
     @Override
     public LocalDateTime isMaxData() {
-       Post post = null;
+        LocalDateTime result = null;
         try (PreparedStatement statement = cnn.prepareStatement(
-                "select * from post where created = (select max(created) from post)")) {
+                "select max(created) from post")) {
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
-                    post = new  Post(
-                            resultSet.getInt("id"),
-                            resultSet.getString("namePost"),
-                            resultSet.getString("textPost"),
-                            resultSet.getString("link"),
-                            resultSet.getTimestamp("created").toLocalDateTime()
-                    );
+                            result = resultSet.getTimestamp(1).toLocalDateTime();
                 }
-                if (post == null) {
+                if (result == null) {
                     return null;
                 }
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return post.getCreated();
+        return result;
     }
 
     @Override
