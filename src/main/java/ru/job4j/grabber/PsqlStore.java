@@ -132,7 +132,7 @@ public class PsqlStore implements Store, AutoCloseable {
         try (PreparedStatement statement = cnn.prepareStatement(
                 "select max(created) from post")) {
             try (ResultSet resultSet = statement.executeQuery()) {
-                while (resultSet.next()) {
+                if (resultSet.next()) {
                             result = resultSet.getTimestamp(1).toLocalDateTime();
                 }
                 if (result == null) {
