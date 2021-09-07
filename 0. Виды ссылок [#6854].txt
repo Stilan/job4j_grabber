@@ -1,0 +1,25 @@
+ Как нужно безопасно работать с SoftReference и WeakReference, чтобы GC не затер данные. 
+
+
+1. Корректным использованием безопасных ссылок и слабых ссылок является сначала получение сильной ссылки на данные, а потом работы с сильной ссылок.
+
+Это гарантирует, что в интервалах получения сильной ссылки из безопасной или слабой GC не затрет объект. Это касается не только локальных переменных, но и возвращаемых значений и аргументов.
+
+2.Каждый раз, когда мы работаем с такими ссылками, нам нужно убедиться, что ссылки , возвращаемый get , не возвращают null.
+
+StringBuilder builder3 = reference2.get();
+if (builder3 != null) {
+    // GC hasn't removed the instance yet
+} else {
+    // GC has cleared the instance
+}
+
+Или
+
+Object referent3 = weakReference2.get();
+if (referent3 != null) {
+    // GC hasn't removed the instance yet
+} else {
+    // GC has cleared the instance
+}
+
