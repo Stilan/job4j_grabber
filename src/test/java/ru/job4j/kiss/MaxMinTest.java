@@ -11,7 +11,7 @@ import static org.junit.Assert.*;
 
 public class MaxMinTest {
      MaxMin maxMin = new MaxMin();
-    List<Integer> list = List.of(1, 3, 5, 3, 1, 5, 86, -1);
+    List<Integer> list = List.of(1, 3, 5, 3, 1, 5, 86);
 
     Comparator<Integer> comparatorMax = new Comparator<Integer>() {
         @Override
@@ -22,7 +22,7 @@ public class MaxMinTest {
     Comparator<Integer> comparatorMin = new Comparator<Integer>() {
         @Override
         public int compare(Integer o1, Integer o2) {
-            return o2.compareTo(o1);
+            return Integer.compare(o1, o2);
         }
     };
     @Test
@@ -31,6 +31,6 @@ public class MaxMinTest {
     }
     @Test
     public void testMin() {
-        assertThat(maxMin.min(list, comparatorMin), is(-1));
+        assertThat(maxMin.min(list, comparatorMin), is(1));
     }
 }
