@@ -41,7 +41,7 @@ public class CinemaTest  {
         assertThat(cinema.find(session1 -> true), is(session));
     }
     @Ignore
-    @Test
+    @Test(expected = Exception.class)
     public void dateEnteredIncorrectly() {
         Account account = new AccountCinema();
         Cinema cinema = new Cinema3D();
@@ -51,7 +51,7 @@ public class CinemaTest  {
         assertThat(ticket, is(new Ticket3D()));
     }
     @Ignore
-    @Test
+    @Test(expected = Exception.class)
     public void buyErrorTicket() {
         Account account = new AccountCinema();
         Cinema cinema = new Cinema3D();
