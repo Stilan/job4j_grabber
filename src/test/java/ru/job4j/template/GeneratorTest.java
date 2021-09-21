@@ -27,7 +27,7 @@ public class GeneratorTest  {
         assertThat(generatorTemplate, is(new GeneratorTemplate()));
     }
     @Ignore
-    @Test
+    @Test(expected = Exception.class)
     public void thereAreNoSuchKeysInTheMap() {
         GeneratorTemplate generatorTemplate = new GeneratorTemplate();
         Map<String, String> stringMap = new HashMap<>();
@@ -37,7 +37,7 @@ public class GeneratorTest  {
         assertThat(generatorTemplate, is(new GeneratorTemplate()));
     }
     @Ignore
-    @Test
+    @Test(expected = Exception.class)
     public void thereAreNoSuchKeysInTheTemplate() {
         GeneratorTemplate generatorTemplate = new GeneratorTemplate();
         Map<String, String> stringMap = new HashMap<>();
