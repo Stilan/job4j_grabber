@@ -16,7 +16,7 @@ public class SimpleReadingFile implements ReadingFile<String> {
     public List<String> reading(String file) {
         List<String> list = new ArrayList<>();
         try (BufferedReader in = new BufferedReader(new FileReader(file))) {
-           in.lines().forEach(list::add);
+           in.lines().forEach(list:: add);
         } catch (Exception e) {
             e.printStackTrace();
         }
