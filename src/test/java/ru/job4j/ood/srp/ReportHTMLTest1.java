@@ -1,6 +1,5 @@
 package ru.job4j.ood.srp;
 
-
 import org.junit.Test;
 
 import java.util.Calendar;
@@ -8,7 +7,7 @@ import java.util.Calendar;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
-public class ReportHTMLTest  {
+public class ReportHTMLTest1  {
     @Test
     public void whenOldGenerated() {
         MemStore store = new MemStore();
