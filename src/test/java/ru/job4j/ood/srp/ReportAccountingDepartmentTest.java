@@ -14,7 +14,7 @@ public class ReportAccountingDepartmentTest  {
     public void whenOldGenerated() {
         MemStore store = new MemStore();
         Calendar now = Calendar.getInstance();
-        Employee worker = new Employee ("Ivan", now, now, 1000);
+        Employee worker = new Employee("Ivan", now, now, 1000);
         store.add(worker);
         Report engine = new ReportAccountingDepartment(store);
         StringBuilder expect = new StringBuilder()
