@@ -14,7 +14,7 @@ public class SimpleSequenceGenerator implements SequenceGenerator<Integer> {
     @Override
     public List<Integer> generate(int size) {
         return IntStream.range(0, size)
-                .map(i -> numberGenerator.generate()).boxed()
+                .map(i -> numberGenerator.generate()). boxed()
                 .collect(Collectors.toList());
     }
 }
