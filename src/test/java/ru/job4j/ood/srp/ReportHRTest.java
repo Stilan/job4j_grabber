@@ -14,7 +14,7 @@ public class ReportHRTest {
     public void whenOldGenerated() {
         MemStore store = new MemStore();
         Calendar now = Calendar.getInstance();
-        Employee worker1 = new Employee("Ivan", now, now, 100);
+        Employee worker1 = new Employee("Ivan", now , now, 100);
         Employee worker2 = new Employee("Ivan", now, now, 200);
         store.add(worker1);
         store.add(worker2);
