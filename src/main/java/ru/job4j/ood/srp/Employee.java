@@ -1,15 +1,21 @@
 package ru.job4j.ood.srp;
 
+import javax.xml.bind.annotation.*;
 import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Objects;
-
+@XmlRootElement(name = "employee")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Employee {
+    @XmlAttribute
     private String name;
     private Calendar hired;
     private Calendar fired;
+    @XmlAttribute
     private double salary;
+    public Employee() {
 
+    }
     public Employee(String name, Calendar hired, Calendar fired, double salary) {
         this.name = name;
         this.hired = hired;
@@ -47,6 +53,16 @@ public class Employee {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{"
+                + "name='" + name + '\''
+                + ", hired=" + hired
+                + ", fired=" + fired
+                + ", salary=" + salary
+                + '}';
     }
 
     @Override
