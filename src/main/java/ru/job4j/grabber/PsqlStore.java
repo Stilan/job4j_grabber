@@ -1,9 +1,7 @@
 package ru.job4j.grabber;
 
-
 import ru.job4j.grabber.utils.SqlRuDateTimeParser;
 import ru.job4j.html.SqlRuParse;
-
 import java.io.FileInputStream;
 import java.sql.*;
 import java.time.LocalDateTime;
@@ -30,8 +28,7 @@ public class PsqlStore implements Store, AutoCloseable {
 
     @Override
     public void save(Post post) {
-     try (PreparedStatement preparedStatement = cnn.prepareStatement(
-             "insert into post(namePost, textPost, link, created) values (?, ?, ?, ?)",
+     try (PreparedStatement preparedStatement = cnn.prepareStatement("insert into post(namePost, textPost, link, created) values (?, ?, ?, ?)",
                           Statement.RETURN_GENERATED_KEYS)) {
          preparedStatement.setString(1, post.getTitle());
          preparedStatement.setString(2, post.getLink());
@@ -75,8 +72,7 @@ public class PsqlStore implements Store, AutoCloseable {
     @Override
     public Post findById(int id) {
         Post post = null;
-        try (PreparedStatement statement = cnn.prepareStatement(
-                "select * from post where id = ?")) {
+        try (PreparedStatement statement = cnn.prepareStatement("select * from post where id = ?")) {
             statement.setInt(1, id);
             try (ResultSet resultSet = statement.executeQuery()) {
                 while (resultSet.next()) {
