@@ -15,8 +15,6 @@ import static org.quartz.TriggerBuilder.newTrigger;
 
 public class AlertRabbit {
 
-
-
     public static void main(String[] args) {
         try {
             List<Long> store = new ArrayList<>();
