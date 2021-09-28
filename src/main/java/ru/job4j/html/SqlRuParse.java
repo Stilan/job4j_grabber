@@ -8,7 +8,6 @@ import ru.job4j.grabber.Parse;
 import ru.job4j.grabber.Post;
 import ru.job4j.grabber.utils.DateTimeParser;
 import ru.job4j.grabber.utils.SqlRuDateTimeParser;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,14 +54,15 @@ public class SqlRuParse implements Parse {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         return post;
     }
         public static void main(String[] args) {
         SqlRuParse sqlRuParse = new SqlRuParse(new SqlRuDateTimeParser());
         List<Post> posts = sqlRuParse.list("https://www.sql.ru/forum/job-offers/1");
         System.out.println(posts.toString());
-        Post post = sqlRuParse.detail(
-                "https://www.sql.ru/forum/1336939/java-razrabotchik-moskva-udalyonka-200-300-gross");
+        Post post = sqlRuParse
+                .detail("https://www.sql.ru/forum/1336939/java-razrabotchik-moskva-udalyonka-200-300-gross");
         System.out.println(post.toString());
     }
 }

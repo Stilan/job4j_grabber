@@ -4,14 +4,12 @@ import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 import ru.job4j.grabber.utils.SqlRuDateTimeParser;
 import ru.job4j.html.SqlRuParse;
-
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.nio.charset.Charset;
 import java.util.List;
 import java.util.Properties;
-
 import static org.quartz.JobBuilder.newJob;
 import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 import static org.quartz.TriggerBuilder.newTrigger;
@@ -30,8 +28,8 @@ public class Grabber implements Grab {
     }
 
     public void cfg() throws IOException {
-        try (InputStream in = new FileInputStream(new File(
-                "/Users/aleksandrlitvinov/projects/job4j_grabber/src/main/resources/app.properties"))) {
+        try (InputStream in =
+                     new FileInputStream(new File("/Users/aleksandrlitvinov/projects/job4j_grabber/src/main/resources/app.properties"))) {
             cfg.load(in);
         }
     }
