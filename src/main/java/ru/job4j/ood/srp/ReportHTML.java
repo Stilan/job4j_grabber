@@ -4,6 +4,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import java.io.StringWriter;
+import java.util.Calendar;
 import java.util.function.Predicate;
 
 public class ReportHTML implements Report {
@@ -17,18 +18,18 @@ public class ReportHTML implements Report {
     public String generate(Predicate<Employee> filter)  {
         StringBuilder xml = new StringBuilder();
         JAXBContext context = null;
+        Employees employees = new Employees();
+        employees.setEmployees(store.findBy(filter));
         try {
-            context = JAXBContext.newInstance(Employee.class);
+            context = JAXBContext.newInstance(Employees.class);
             Marshaller marshaller = context.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-            for (Employee employee : store.findBy(filter)) {
                 try (StringWriter writer = new StringWriter()) {
-                    marshaller.marshal(employee, writer);
+                    marshaller.marshal(employees, writer);
                     xml.append(writer.getBuffer().toString());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-            }
         } catch (JAXBException e) {
             e.printStackTrace();
         }
