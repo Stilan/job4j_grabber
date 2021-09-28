@@ -60,19 +60,12 @@ public class Grabber implements Grab {
      */
     public void web(Store store) {
         new Thread(() -> {
-            // серверсокет прослушивает порт 9000
             try (ServerSocket server = new ServerSocket(Integer.parseInt(cfg.getProperty("port")))) {
                 while (!server.isClosed()) {
                     Socket socket = server.accept();
-                    // accept() будет ждать пока
-                    //кто-нибудь не захочет подключиться
                     try (OutputStream out = socket.getOutputStream()) {
-                       // отправлять список вакансий
-                        // Протокол HTTP
                        out.write("HTTP/1.1 200 OK\r\n\r\n".getBytes());
-                        //В программе читается весь входной поток.
                         for (Post post : store.getAll()) {
-                            // ответ сервера
                             out.write(post.toString().getBytes(Charset.forName("Windows-1251")));
                             out.write(System.lineSeparator().getBytes());
                         }

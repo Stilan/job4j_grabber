@@ -1,15 +1,14 @@
 package ru.job4j.template;
 
-import junit.framework.TestCase;
+
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.Matchers.is;
 
 import org.junit.Ignore;
 import org.junit.Test;
-import ru.job4j.tdd.*;
 
-import java.util.Arrays;
-import java.util.Calendar;
+
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -47,6 +46,4 @@ public class GeneratorTest  {
         generatorTemplate.produce("I am a ${name}, Who are ${subject}?", stringMap);
         assertThat(generatorTemplate, is(new GeneratorTemplate()));
     }
-
-    //
 }

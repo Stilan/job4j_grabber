@@ -1,9 +1,7 @@
 package ru.job4j.template;
 
-import java.util.HashMap;
+
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class GeneratorTemplate implements Generator {
 

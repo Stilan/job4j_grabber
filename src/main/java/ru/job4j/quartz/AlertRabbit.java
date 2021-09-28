@@ -37,7 +37,6 @@ public class AlertRabbit {
                 Thread.sleep(10000);
             }
             scheduler.shutdown();
-        //    System.out.println(store);
         } catch (Exception se) {
             se.printStackTrace();
         }
@@ -68,7 +67,7 @@ public class AlertRabbit {
         }
 
         @Override
-        public void execute(JobExecutionContext context) throws JobExecutionException {
+        public void execute(JobExecutionContext context) {
             System.out.println("Rabbit runs here ...");
             Connection connection = (Connection) context.getJobDetail().getJobDataMap().get("store");
             try (PreparedStatement statement = connection.prepareStatement(

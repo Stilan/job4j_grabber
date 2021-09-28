@@ -39,7 +39,6 @@ public class PsqlStore implements Store, AutoCloseable {
         } catch (Exception e) {
             throw new IllegalStateException(e);
         }
-        /* cnn = DriverManager.getConnection(...); */
     }
 
     /**
