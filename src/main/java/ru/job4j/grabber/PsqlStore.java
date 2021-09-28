@@ -5,7 +5,6 @@ import ru.job4j.grabber.utils.SqlRuDateTimeParser;
 import ru.job4j.html.SqlRuParse;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;

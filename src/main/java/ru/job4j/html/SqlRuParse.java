@@ -20,8 +20,6 @@ public class SqlRuParse implements Parse {
     public SqlRuParse(DateTimeParser dateTimeParser) {
         this.dateTimeParser = dateTimeParser;
     }
-
-
     @Override
     public List<Post> list(String link) {
         List<Post> list = new ArrayList<>();
@@ -38,7 +36,6 @@ public class SqlRuParse implements Parse {
         }
         return list;
     }
-
     @Override
     public Post detail(String link) {
         Post post = null;
@@ -60,7 +57,6 @@ public class SqlRuParse implements Parse {
         }
         return post;
     }
-
         public static void main(String[] args) {
         SqlRuParse sqlRuParse = new SqlRuParse(new SqlRuDateTimeParser());
         List<Post> posts = sqlRuParse.list("https://www.sql.ru/forum/job-offers/1");
