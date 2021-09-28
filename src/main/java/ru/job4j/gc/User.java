@@ -1,5 +1,5 @@
 package ru.job4j.gc;
-// Заголовок: 8 байт
+
 public class User {
     private int age;
     private String name;

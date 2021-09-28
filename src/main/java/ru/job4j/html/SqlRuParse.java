@@ -1,6 +1,5 @@
 package ru.job4j.html;
 
-import jdk.jfr.Description;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -14,12 +13,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *  @author Александр Литвинов
- *  @since 11.08.2021
- *
- */
-
 public class SqlRuParse implements Parse {
 
     private final DateTimeParser dateTimeParser;
@@ -28,12 +21,7 @@ public class SqlRuParse implements Parse {
         this.dateTimeParser = dateTimeParser;
     }
 
-    /**
-     * Метод list загружает список всех постов.
-     *
-     * @param link
-     * @return
-     */
+
     @Override
     public List<Post> list(String link) {
         List<Post> list = new ArrayList<>();
@@ -51,12 +39,6 @@ public class SqlRuParse implements Parse {
         return list;
     }
 
-    /**
-     * Метод detail загружает все детали одного поста
-     *
-     * @param link
-     * @return
-     */
     @Override
     public Post detail(String link) {
         Post post = null;

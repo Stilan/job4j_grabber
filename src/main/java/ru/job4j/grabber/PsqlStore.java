@@ -12,22 +12,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
 
-/**
- *  Класс сохроняет Post в базе.
- *  @author Александр Литвинов
- *  @since 16.08.2021
- *
- */
-
 public class PsqlStore implements Store, AutoCloseable {
 
     private Connection cnn;
 
-    /**
-     * Конструктор
-     * @param cfg объект Properties Он используется для ведения списков значений,
-     *            в которых ключ является строкой, а значение также является строкой.
-     */
     public PsqlStore(Properties cfg) {
        try {
             Class.forName(cfg.getProperty("driver-class-name"));
@@ -41,10 +29,6 @@ public class PsqlStore implements Store, AutoCloseable {
         }
     }
 
-    /**
-     * Метод сохраняет в базу
-     * @param post
-     */
     @Override
     public void save(Post post) {
      try (PreparedStatement preparedStatement = cnn.prepareStatement(
@@ -68,10 +52,6 @@ public class PsqlStore implements Store, AutoCloseable {
      }
     }
 
-    /**
-     * Метод для получения списка объектов из базы
-     * @return Список Post
-     */
     @Override
     public List<Post> getAll() {
         List<Post> posts = new ArrayList<>();
@@ -93,11 +73,6 @@ public class PsqlStore implements Store, AutoCloseable {
         return posts;
     }
 
-    /**
-     * Метод для получения объекта по id
-     * @param id id объекта в базе
-     * @return объект Post
-     */
     @Override
     public Post findById(int id) {
         Post post = null;
@@ -121,10 +96,7 @@ public class PsqlStore implements Store, AutoCloseable {
         return post;
     }
 
-    /**
-     * Метод извлекает последнию дату из бд
-     * @return LocalDateTime
-     */
+
     @Override
     public LocalDateTime isMaxData() {
         LocalDateTime result = null;

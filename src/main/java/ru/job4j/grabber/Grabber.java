@@ -54,10 +54,6 @@ public class Grabber implements Grab {
         scheduler.scheduleJob(job, trigger);
     }
 
-    /**
-     * метод отправлеет список вакансий на порт 9000
-     * @param store бд хранилище
-     */
     public void web(Store store) {
         new Thread(() -> {
             try (ServerSocket server = new ServerSocket(Integer.parseInt(cfg.getProperty("port")))) {
