@@ -91,7 +91,6 @@ public class PsqlStore implements Store, AutoCloseable {
         return post;
     }
 
-
     @Override
     public LocalDateTime isMaxData() {
         LocalDateTime result = null;
