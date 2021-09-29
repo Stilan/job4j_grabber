@@ -59,10 +59,11 @@ public class SqlRuParse implements Parse {
     }
         public static void main(String[] args) {
         SqlRuParse sqlRuParse = new SqlRuParse(new SqlRuDateTimeParser());
-        List<Post> posts = sqlRuParse.list("https://www.sql.ru/forum/job-offers/1");
+        List<Post> posts = sqlRuParse.list(
+                "https:/"+"/www.sql.ru/forum/job-offers/1");
         System.out.println(posts.toString());
         Post post = sqlRuParse
-                .detail("https://www.sql.ru/forum/1336939/java-razrabotchik-moskva-udalyonka-200-300-gross");
+                .detail("https:/"+"/www.sql.ru/forum/1336939/java-razrabotchik-moskva-udalyonka-200-300-gross");
         System.out.println(post.toString());
     }
 }
