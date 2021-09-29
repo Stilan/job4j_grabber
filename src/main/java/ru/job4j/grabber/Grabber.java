@@ -80,7 +80,7 @@ public class Grabber implements Grab {
             JobDataMap map = context.getJobDetail().getJobDataMap();
             Store store = (Store) map.get("store");
             Parse parse = (Parse) map.get("parse");
-            String s = "https:/"+"/www.sql.ru/forum/job-offers/1";
+            String s = "https:/" + "/www.sql.ru/forum/job-offers/1";
             List<Post> postList = parse.list("t");
             for (Post post : postList) {
                 if (post.getTitle().contains("Java") || post.getTitle().contains("java")) {

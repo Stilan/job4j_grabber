@@ -124,7 +124,7 @@ public class PsqlStore implements Store, AutoCloseable {
         PsqlStore psqlStore = new PsqlStore(cfg);
         SqlRuParse sqlRuParse = new SqlRuParse(new SqlRuDateTimeParser());
         Post post = sqlRuParse
-                .detail("https:/"+"/www.sql.ru/forum/1336939/java-razrabotchik-moskva-udalyonka-200-300-gross");
+                .detail("https:/" + "/www.sql.ru/forum/1336939/java-razrabotchik-moskva-udalyonka-200-300-gross");
         psqlStore.save(post);
         List<Post> list = psqlStore.getAll();
         System.out.println(list.toString());
