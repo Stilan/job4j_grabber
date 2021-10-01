@@ -8,6 +8,11 @@ public class Warehouse implements FoodStorage {
 
    private List<Food> foodList;
 
+    @Override
+    public List<Food> getFoodList() {
+        return foodList;
+    }
+
     public Warehouse(List<Food> foodList) {
         this.foodList = foodList;
     }
@@ -15,7 +20,6 @@ public class Warehouse implements FoodStorage {
     @Override
     public void add(Food food) {
             foodList.add(food);
-            System.out.println("w");
     }
 
     @Override

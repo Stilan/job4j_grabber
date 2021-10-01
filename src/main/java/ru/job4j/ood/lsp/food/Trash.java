@@ -14,7 +14,6 @@ public class Trash implements FoodStorage {
     @Override
     public void add(Food food) {
         foodList.add(food);
-        System.out.println("t");
     }
 
     @Override
@@ -24,11 +23,15 @@ public class Trash implements FoodStorage {
         long milliseconds1 = calendar1.getTimeInMillis();
         long milliseconds2 = calendar2.getTimeInMillis();
         long diff = milliseconds1 - milliseconds2;
-        int diffDays = (int) diff / (24 * 60 * 60 * 1000);
+        long diffDays =  diff / (24 * 60 * 60 * 1000);
         if (diffDays > food.getExpiryDate()) {
-            foodList.add(food);
             return true;
         }
         return false;
+    }
+
+    @Override
+    public List<Food> getFoodList() {
+        return foodList;
     }
 }

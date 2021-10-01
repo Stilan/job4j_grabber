@@ -7,6 +7,11 @@ public class Shop implements FoodStorage {
 
     private  List<Food> foodList;
 
+    @Override
+    public List<Food> getFoodList() {
+        return foodList;
+    }
+
     public Shop(List<Food> foodList) {
         this.foodList = foodList;
     }
@@ -14,7 +19,6 @@ public class Shop implements FoodStorage {
     @Override
     public void add(Food food) {
         foodList.add(food);
-        System.out.println("s");
     }
 
     @Override
@@ -24,15 +28,16 @@ public class Shop implements FoodStorage {
         long milliseconds1 = calendar1.getTimeInMillis();
         long milliseconds2 = calendar2.getTimeInMillis();
         long diff = milliseconds1 - milliseconds2;
-        int diffDays = (int) diff / (24 * 60 * 60 * 1000);
-        if (diffDays > food.getExpiryDate() * 25 / 100 && diffDays < food.getExpiryDate() * 75 / 100) {
-            foodList.add(food);
+        long diffDays =  diff / (24 * 60 * 60 * 1000);
+        if (diffDays > food.getExpiryDate() * 25L / 100 && diffDays < food.getExpiryDate() * 75L / 100) {
             return true;
-        } else if (diffDays > food.getExpiryDate() * 75 / 100 && diffDays < food.getExpiryDate()) {
+        } else if (diffDays > food.getExpiryDate() * 75L / 100 && diffDays < food.getExpiryDate()) {
             food.setPrice(food.getPrice() - (food.getPrice() * food.getDiscount() / 100));
-            foodList.add(food);
             return true;
         }
         return false;
     }
+
+
+
 }

@@ -15,6 +15,7 @@ public class Strategy {
         List<FoodStorage> foodStorageList = List.of(foodStorageW, foodStorageS, foodStorageT);
         ControllQuality controllQuality = new ControllQuality(foodStorageList);
         controllQuality.shelfLife(food);
+        System.out.println(foodStorageT.getFoodList().toString());
 
     }
 }
