@@ -9,9 +9,9 @@ public class Strategy {
         Calendar calendar = Calendar.getInstance();
         calendar.set(2021, Calendar.SEPTEMBER, 10);
         Food food = new Bread("Хлеб", 20, calendar, 25, 30);
-        FoodStorage foodStorageW = new Warehouse(new ArrayList<>());
-        FoodStorage foodStorageS = new Shop(new ArrayList<>());
-        FoodStorage foodStorageT = new Trash(new ArrayList<>());
+        FoodStorage foodStorageW = new Warehouse();
+        FoodStorage foodStorageS = new Shop();
+        FoodStorage foodStorageT = new Trash();
         List<FoodStorage> foodStorageList = List.of(foodStorageW, foodStorageS, foodStorageT);
         ControllQuality controllQuality = new ControllQuality(foodStorageList);
         controllQuality.shelfLife(food);

@@ -1,19 +1,16 @@
 package ru.job4j.ood.lsp.food;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 public class Shop implements FoodStorage {
 
-    private  List<Food> foodList;
+    private  List<Food> foodList = new ArrayList<>();
 
     @Override
     public List<Food> getFoodList() {
         return foodList;
-    }
-
-    public Shop(List<Food> foodList) {
-        this.foodList = foodList;
     }
 
     @Override

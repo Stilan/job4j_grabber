@@ -1,15 +1,12 @@
 package ru.job4j.ood.lsp.food;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
 public class Trash implements FoodStorage {
 
-    private  List<Food> foodList;
-
-    public Trash(List<Food> foodList) {
-        this.foodList = foodList;
-    }
+    private  List<Food> foodList = new ArrayList<>();
 
     @Override
     public void add(Food food) {
