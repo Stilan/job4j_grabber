@@ -1,15 +1,23 @@
 package ru.job4j.ood.lsp.tansport;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SimpleParking implements Parking {
 
     private Car car;
-    private List<Car> carList;
+    private static int parkingSize;
+    private static int occupiedSize;
+    private List<Car> carList = new ArrayList<>();
+
+    @Override
+    public List<Car> getCarList() {
+        return carList;
+    }
 
     @Override
     public boolean toPark(Car car) {
-        return false;
+        return true;
     }
 
     @Override
