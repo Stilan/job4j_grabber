@@ -1,6 +1,7 @@
 package ru.job4j.ood.lsp.tansport;
 
 
+
 import org.junit.Ignore;
 import org.junit.Test;
 
@@ -10,6 +11,7 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 public class SimpleParkingTest  {
+
      @Ignore
      @Test
     public void toParkTest() {
@@ -19,6 +21,7 @@ public class SimpleParkingTest  {
           assertThat(simpleParking.toPark(car1), is(true));
           assertThat(simpleParking.toPark(car2), is(true));
      }
+
     @Ignore
      @Test
      public void addTest() {
