@@ -5,10 +5,14 @@ import java.util.List;
 
 public class SimpleParking implements Parking {
 
-    private Car car;
-    private static int parkingSize;
-    private static int occupiedSize;
     private List<Car> carList = new ArrayList<>();
+    private  int placeOfTrucks;
+    private  int placeOfCar;
+
+    public SimpleParking(int placeOfTrucks, int placeOfCar) {
+        this.placeOfTrucks = placeOfTrucks;
+        this.placeOfCar = placeOfCar;
+    }
 
     @Override
     public List<Car> getCarList() {
@@ -19,6 +23,7 @@ public class SimpleParking implements Parking {
     public boolean toPark(Car car) {
         return true;
     }
+
 
     @Override
     public void add(Car car) {
