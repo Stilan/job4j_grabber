@@ -2,11 +2,7 @@ package ru.job4j.ood.lsp.tansport;
 
 public class Truck implements Car {
 
-    private int size;
-
-    public Truck(int size) {
-        this.size = size;
-    }
+    private int size = 2;
 
     @Override
     public int getSize() {
