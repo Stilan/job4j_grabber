@@ -25,9 +25,6 @@ public class SimpleParking implements Parking {
             if (placeOfCar > 0) {
                 placeOfCar--;
                 return true;
-            } else if (placeOfTrucks > 0) {
-                placeOfTrucks--;
-                return true;
             }
         } else if (car.getSize() > 1) {
             if (placeOfTrucks > 0) {
