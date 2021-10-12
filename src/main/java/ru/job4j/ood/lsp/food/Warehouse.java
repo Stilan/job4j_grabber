@@ -8,10 +8,9 @@ import java.util.Set;
 
 public class Warehouse implements FoodStorage {
 
-
     private SetFood setFood;
 
-    public Warehouse(){
+    public Warehouse() {
         setFood = new SetFood();
     }
 

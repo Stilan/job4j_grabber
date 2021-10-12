@@ -9,7 +9,9 @@ public class Trash implements FoodStorage {
 
     private SetFood setFood;
 
-    public Trash(){
+
+    public Trash() {
+
         setFood = new SetFood();
     }
 

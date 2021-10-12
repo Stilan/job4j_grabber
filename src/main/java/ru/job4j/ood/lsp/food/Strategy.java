@@ -10,12 +10,12 @@ public class Strategy {
         FoodStorage foodStorageW = new Warehouse();
         FoodStorage foodStorageS = new Shop();
         FoodStorage foodStorageT = new Trash();
-        FoodStorageList IfoodStorageList = new FoodStorageList();
-        IfoodStorageList.saveList(foodStorageW);
-        IfoodStorageList.saveList(foodStorageS);
-        IfoodStorageList.saveList(foodStorageT);
+        FoodStorageList foodStorageList = new FoodStorageList();
+        foodStorageList.saveList(foodStorageW);
+        foodStorageList.saveList(foodStorageS);
+        foodStorageList.saveList(foodStorageT);
         IFoodSet iFoodSet = new FootSet();
-        ControllQuality controllQuality = new ControllQuality(IfoodStorageList,iFoodSet);
+        ControllQuality controllQuality = new ControllQuality(foodStorageList, iFoodSet);
         controllQuality.shelfLife(food);
         controllQuality.resort();
         System.out.println(foodStorageT.getSet().toString());

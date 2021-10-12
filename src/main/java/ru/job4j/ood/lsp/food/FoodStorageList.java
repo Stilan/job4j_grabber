@@ -9,7 +9,9 @@ public class FoodStorageList implements IControllQualitySet {
 
     @Override
     public boolean saveList(FoodStorage foodStorage) {
-        if ( foodStorage == null) {
+
+        if (foodStorage == null) {
+
             return false;
         }
         foodStorageList.add(foodStorage);

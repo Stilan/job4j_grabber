@@ -4,7 +4,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class FootSet implements IFoodSet{
+
+public class FootSet implements IFoodSet {
 
     Set<Food> foodSet = new HashSet<>();
 

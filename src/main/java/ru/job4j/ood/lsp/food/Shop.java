@@ -9,7 +9,8 @@ public class Shop implements FoodStorage  {
 
     private SetFood setFood;
 
-    public Shop(){
+    public Shop() {
+
         setFood = new SetFood();
     }
 
