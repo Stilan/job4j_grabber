@@ -1,8 +1,6 @@
 package ru.job4j.ood.lsp.food;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 public class Strategy {
     public static void main(String[] args) {
@@ -12,10 +10,15 @@ public class Strategy {
         FoodStorage foodStorageW = new Warehouse();
         FoodStorage foodStorageS = new Shop();
         FoodStorage foodStorageT = new Trash();
-        List<FoodStorage> foodStorageList = List.of(foodStorageW, foodStorageS, foodStorageT);
-        ControllQuality controllQuality = new ControllQuality(foodStorageList);
+        FoodStorageList foodStorageList = new FoodStorageList();
+        foodStorageList.saveList(foodStorageW);
+        foodStorageList.saveList(foodStorageS);
+        foodStorageList.saveList(foodStorageT);
+        IFoodSet iFoodSet = new FootSet();
+        ControllQuality controllQuality = new ControllQuality(foodStorageList, iFoodSet);
         controllQuality.shelfLife(food);
-        System.out.println(foodStorageT.getFoodList().toString());
+        controllQuality.resort();
+        System.out.println(foodStorageT.getSet().toString());
 
     }
 }
