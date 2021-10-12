@@ -17,15 +17,19 @@ public class ControllQualityTest {
         FoodStorage foodStorageW = new Warehouse();
         FoodStorage foodStorageS = new Shop();
         FoodStorage foodStorageT = new Trash();
-        List<FoodStorage> foodStorageList = List.of(foodStorageW, foodStorageS, foodStorageT);
-        ControllQuality controllQuality = new ControllQuality(foodStorageList);
+        FoodStorageList IfoodStorageList = new FoodStorageList();
+        IfoodStorageList.saveList(foodStorageW);
+        IfoodStorageList.saveList(foodStorageS);
+        IfoodStorageList.saveList(foodStorageT);
+        IFoodSet iFoodSet = new FootSet();
+        ControllQuality controllQuality = new ControllQuality(IfoodStorageList,iFoodSet);
         Calendar calendar = Calendar.getInstance();
-        calendar.set(2021, Calendar.SEPTEMBER, 30);
-        Food food = new Bread("Хлеб", 20, calendar, 25, 30);
+        calendar.set(2021, Calendar.OCTOBER, 6);
+        Food food = new Bread("Хлеб", 30, calendar, 25, 30);
         controllQuality.shelfLife(food);
         FoodStorage foodStorage = new Warehouse();
         foodStorage.add(food);
-        assertThat(foodStorageW.getFoodList(), is(foodStorage.getFoodList()));
+        assertThat(foodStorageW.getSet(), is(foodStorage.getSet()));
     }
 
     @Test
@@ -33,15 +37,19 @@ public class ControllQualityTest {
         FoodStorage foodStorageW = new Warehouse();
         FoodStorage foodStorageS = new Shop();
         FoodStorage foodStorageT = new Trash();
-        List<FoodStorage> foodStorageList = List.of(foodStorageW, foodStorageS, foodStorageT);
-        ControllQuality controllQuality = new ControllQuality(foodStorageList);
+        FoodStorageList IfoodStorageList = new FoodStorageList();
+        IfoodStorageList.saveList(foodStorageW);
+        IfoodStorageList.saveList(foodStorageS);
+        IfoodStorageList.saveList(foodStorageT);
+        IFoodSet iFoodSet = new FootSet();
+        ControllQuality controllQuality = new ControllQuality(IfoodStorageList,iFoodSet);
         Calendar calendar = Calendar.getInstance();
         calendar.set(2021, Calendar.SEPTEMBER, 18);
-        Food food = new Bread("Хлеб", 20, calendar, 25, 20);
+        Food food = new Bread("Хлеб", 30, calendar, 25, 20);
         controllQuality.shelfLife(food);
         Shop shop = new Shop();
         shop.add(food);
-        assertThat(foodStorageS.getFoodList(), is(shop.getFoodList()));
+        assertThat(foodStorageS.getSet(), is(shop.getSet()));
     }
 
     @Test
@@ -49,14 +57,18 @@ public class ControllQualityTest {
         FoodStorage foodStorageW = new Warehouse();
         FoodStorage foodStorageS = new Shop();
         FoodStorage foodStorageT = new Trash();
-        List<FoodStorage> foodStorageList = List.of(foodStorageW, foodStorageS, foodStorageT);
-        ControllQuality controllQuality = new ControllQuality(foodStorageList);
+        FoodStorageList IfoodStorageList = new FoodStorageList();
+        IfoodStorageList.saveList(foodStorageW);
+        IfoodStorageList.saveList(foodStorageS);
+        IfoodStorageList.saveList(foodStorageT);
+        IFoodSet iFoodSet = new FootSet();
+        ControllQuality controllQuality = new ControllQuality(IfoodStorageList,iFoodSet);
         Calendar calendar = Calendar.getInstance();
         calendar.set(2021, Calendar.SEPTEMBER, 1);
         Food food = new Bread("Хлеб", 20, calendar, 25, 20);
         controllQuality.shelfLife(food);
         FoodStorage foodStorage = new Trash();
         foodStorage.add(food);
-        assertThat(foodStorageT.getFoodList(), is(foodStorage.getFoodList()));
+        assertThat(foodStorageT.getSet(), is(foodStorage.getSet()));
     }
 }

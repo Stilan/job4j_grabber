@@ -3,19 +3,19 @@ package ru.job4j.ood.lsp.food;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Set;
 
-public class Shop implements FoodStorage {
+public class Shop implements FoodStorage  {
 
-    private  List<Food> foodList = new ArrayList<>();
+    private SetFood setFood;
 
-    @Override
-    public List<Food> getFoodList() {
-        return foodList;
+    public Shop(){
+        setFood = new SetFood();
     }
 
     @Override
     public void add(Food food) {
-        foodList.add(food);
+        setFood.saveFood(food);
     }
 
     @Override
@@ -35,6 +35,8 @@ public class Shop implements FoodStorage {
         return false;
     }
 
-
-
+    @Override
+    public Set<Food> getSet() {
+        return setFood.getFood();
+    }
 }
