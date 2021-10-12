@@ -7,7 +7,7 @@ public abstract class BaseEntity {
 
     protected String name;
 
-    public BaseEntity(int id, String name) {
+    public BaseEntity(int id, String name)  {
         this.id = id;
         this.name = name;
     }
