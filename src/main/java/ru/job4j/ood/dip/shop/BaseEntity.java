@@ -37,7 +37,7 @@ public abstract class BaseEntity {
             return false;
         }
         BaseEntity that = (BaseEntity) o;
-        return id == that.id && Objects.equals(name, that.name);
+        return id == that.id && Objects.equals(name,  that.name);
     }
 
     @Override
