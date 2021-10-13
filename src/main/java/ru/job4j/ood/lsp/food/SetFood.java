@@ -3,7 +3,7 @@ package ru.job4j.ood.lsp.food;
 import java.util.HashSet;
 import java.util.Set;
 
-public class SetFood implements IFoodStorageSet {
+public class SetFood implements FoodStorageSet {
     Set<Food> foodSet = new HashSet<>();
 
     @Override

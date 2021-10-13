@@ -3,10 +3,10 @@ package ru.job4j.ood.lsp.food;
 
 public class ControllQuality {
 
-   public IControllQualitySet controllQualitySet;
-   public IFoodSet iFoodSet;
+   public ControllQualitySet controllQualitySet;
+   public FoodSet iFoodSet;
 
-   public ControllQuality(IControllQualitySet ifoodStorageList, IFoodSet iFoodSet) {
+   public ControllQuality(ControllQualitySet ifoodStorageList, FoodSet iFoodSet) {
        this.controllQualitySet = ifoodStorageList;
        this.iFoodSet = iFoodSet;
    }

@@ -3,9 +3,7 @@ package ru.job4j.ood.lsp.food;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -21,7 +19,7 @@ public class ControllQualityTest {
         foodStorageList.saveList(foodStorageW);
         foodStorageList.saveList(foodStorageS);
         foodStorageList.saveList(foodStorageT);
-        IFoodSet iFoodSet = new FootSet();
+        FoodSet iFoodSet = new FootSet();
         ControllQuality controllQuality = new ControllQuality(foodStorageList, iFoodSet);
         Calendar calendar = Calendar.getInstance();
         calendar.set(2021, Calendar.OCTOBER, 6);
@@ -41,7 +39,7 @@ public class ControllQualityTest {
         foodStorageList.saveList(foodStorageW);
         foodStorageList.saveList(foodStorageS);
         foodStorageList.saveList(foodStorageT);
-        IFoodSet iFoodSet = new FootSet();
+        FoodSet iFoodSet = new FootSet();
         ControllQuality controllQuality = new ControllQuality(foodStorageList, iFoodSet);
         Calendar calendar = Calendar.getInstance();
         calendar.set(2021, Calendar.SEPTEMBER, 18);
@@ -61,7 +59,7 @@ public class ControllQualityTest {
         foodStorageList.saveList(foodStorageW);
         foodStorageList.saveList(foodStorageS);
         foodStorageList.saveList(foodStorageT);
-        IFoodSet iFoodSet = new FootSet();
+        FoodSet iFoodSet = new FootSet();
         ControllQuality controllQuality = new ControllQuality(foodStorageList, iFoodSet);
         Calendar calendar = Calendar.getInstance();
         calendar.set(2021, Calendar.SEPTEMBER, 1);

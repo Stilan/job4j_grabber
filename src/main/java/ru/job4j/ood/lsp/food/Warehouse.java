@@ -8,7 +8,6 @@ import java.util.Set;
 
 public class Warehouse implements FoodStorage {
 
-
     private SetFood setFood;
 
     public Warehouse() {
@@ -22,12 +21,7 @@ public class Warehouse implements FoodStorage {
 
     @Override
     public boolean validate(Food food) {
-        Calendar calendar1 = Calendar.getInstance();
-        Calendar calendar2 = food.getCreateDate();
-        long milliseconds1 = calendar1.getTimeInMillis();
-        long milliseconds2 = calendar2.getTimeInMillis();
-        long diff = milliseconds1 - milliseconds2;
-        long diffDays = diff / (24 * 60 * 60 * 1000);
+        long diffDays = getDaysOfSinceCreation(food);
         if (diffDays <= food.getExpiryDate() / 4) {
             return true;
         }

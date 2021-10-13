@@ -3,7 +3,7 @@ package ru.job4j.ood.lsp.food;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FoodStorageList implements IControllQualitySet {
+public class FoodStorageList implements ControllQualitySet {
 
     List<FoodStorage> foodStorageList = new ArrayList<>();
 

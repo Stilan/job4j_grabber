@@ -14,7 +14,7 @@ public class Strategy {
         foodStorageList.saveList(foodStorageW);
         foodStorageList.saveList(foodStorageS);
         foodStorageList.saveList(foodStorageT);
-        IFoodSet iFoodSet = new FootSet();
+        FoodSet iFoodSet = new FootSet();
         ControllQuality controllQuality = new ControllQuality(foodStorageList, iFoodSet);
         controllQuality.shelfLife(food);
         controllQuality.resort();
