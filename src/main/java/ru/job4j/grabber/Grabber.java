@@ -27,7 +27,7 @@ public class Grabber implements Grab {
         return scheduler;
     }
 
-    public void cfg() throws IOException {
+    public void cfg() throws IOException  {
         try (InputStream in =
                      new FileInputStream(new File("/Users/aleksandrlitvinov/projects/job4j_grabber/src/main/resources/app.properties"))) {
             cfg.load(in);
